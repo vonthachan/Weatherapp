@@ -11,18 +11,38 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class MyAdapter(private val data: List<Data>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val data: List<DayForecast>) :
+    RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     @SuppressLint("NewApi")
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         //Date formatting
         private val formatter = DateTimeFormatter.ofPattern("MMM d")
+        private val timeFormatter = DateTimeFormatter.ofPattern("h:mma")
         private val dateView: TextView = view.findViewById(R.id.date)
+        private val sunriseView: TextView = view.findViewById(R.id.sunrise)
+        private val sunsetView: TextView = view.findViewById(R.id.sunset)
+        private val dayTempView: TextView = view.findViewById(R.id.temp)
+        private val highTempView: TextView = view.findViewById(R.id.highTemp)
+        private val lowTempView: TextView = view.findViewById(R.id.lowTemp)
 
-        //Date bind
-        fun bind(data: Data) {
+        fun bind(data: DayForecast) {
             val instant = Instant.ofEpochSecond(data.date)
             val dateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
             dateView.text = formatter.format(dateTime)
+
+            val sunriseTime =
+                LocalDateTime.ofInstant(Instant.ofEpochSecond(data.sunrise), ZoneId.systemDefault())
+            sunriseView.text = timeFormatter.format(sunriseTime)
+
+            val sunsetTime =
+                LocalDateTime.ofInstant(Instant.ofEpochSecond(data.sunset), ZoneId.systemDefault())
+            sunsetView.text = timeFormatter.format(sunsetTime)
+
+            dayTempView.text = (data.temp.day.toInt().toString() + "°")
+
+            highTempView.text = (data.temp.max.toInt().toString() + "°")
+
+            lowTempView.text = data.temp.min.toInt().toString() + "°"
         }
     }
 
