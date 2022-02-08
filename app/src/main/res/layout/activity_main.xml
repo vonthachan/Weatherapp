@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
     tools:context=".MainActivity">
 
     <TextView
@@ -36,20 +35,21 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@id/temperature"
         app:layout_constraintTop_toBottomOf="@id/city_name"
-        app:srcCompat="@drawable/sun" />
+        app:srcCompat="@drawable/sun"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/feels_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
         android:text="@string/feels_like"
         android:textColor="@color/black"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="@id/temperature"
         app:layout_constraintTop_toBottomOf="@id/temperature" />
 
@@ -60,7 +60,7 @@
         android:layout_marginTop="24dp"
         android:text="@string/low"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/temperature"
         app:layout_constraintTop_toBottomOf="@id/feels_like" />
 
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="@string/high"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/low"
         app:layout_constraintTop_toBottomOf="@id/low" />
 
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:text="@string/humidity"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/high"
         app:layout_constraintTop_toBottomOf="@id/high" />
 
@@ -90,9 +90,22 @@
         android:layout_height="wrap_content"
         android:text="@string/pressure"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@id/humidity"
         app:layout_constraintTop_toBottomOf="@id/humidity" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forecast"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="326dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
