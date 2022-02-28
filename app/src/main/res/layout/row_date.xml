@@ -42,10 +42,9 @@
         app:layout_constraintTop_toBottomOf="@id/sunrise" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/forecast_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sun"
@@ -77,19 +76,8 @@
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/temperature"
-        android:textColor="@color/black"
-        android:textSize="11sp"
-        app:layout_constraintStart_toEndOf="@id/tempLabel"
-        app:layout_constraintTop_toTopOf="@id/tempLabel" />
-
-    <TextView
-        android:id="@+id/tempLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
-        android:text="@string/tempLabel"
+        android:layout_marginEnd="50dp"
+        android:text="@string/temp"
         android:textColor="@color/black"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,46 +85,25 @@
         app:layout_constraintTop_toTopOf="@id/sunrise" />
 
     <TextView
-        android:id="@+id/highLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/highLabel"
-        android:textColor="@color/black"
-        android:textSize="11sp"
-        app:layout_constraintStart_toStartOf="@id/tempLabel"
-        app:layout_constraintTop_toTopOf="@id/sunset" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/highTemp"
-        android:text="@string/highTemp"
-        app:layout_constraintTop_toTopOf="@id/highLabel"
-        app:layout_constraintStart_toEndOf="@id/highLabel"
-        android:textSize="11sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="4dp"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lowLabel"
-        android:text="@string/lowLabel"
-        android:textSize="11sp"
+        android:text="@string/highTemp"
         android:textColor="@color/black"
-        app:layout_constraintTop_toTopOf="@id/highLabel"
-        app:layout_constraintStart_toEndOf="@id/highTemp"
-        android:layout_marginStart="8dp"/>
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@id/temp"
+        app:layout_constraintTop_toTopOf="@id/sunset" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lowTemp"
         android:text="@string/lowTemp"
-        android:textColor="@color/black"
         android:textSize="11sp"
-        app:layout_constraintTop_toTopOf="@id/lowLabel"
-        app:layout_constraintStart_toEndOf="@id/lowLabel"
-        android:layout_marginStart="4dp"/>
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@id/highTemp"
+        app:layout_constraintStart_toEndOf="@id/highTemp"
+        android:layout_marginStart="8dp"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
