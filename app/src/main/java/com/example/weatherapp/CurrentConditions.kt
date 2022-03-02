@@ -5,4 +5,4 @@ data class CurrentConditions(
     val main: Currents,
     val name: String,
 
-)
+    )

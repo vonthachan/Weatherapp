@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.149" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/activity_forecast.xml" value="0.18854166666666666" />
-        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/activity_main.xml" value="0.15625" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/row_date.xml" value="0.33" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/toolbar.xml" value="0.16770833333333332" />
       </map>
