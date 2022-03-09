@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">My Weather App</string>
     <string name="st_paul_mn">St. Paul, MN</string>
-    <string name="temperature">%1$d°</string>
+    <string name="currentTemperature">%1$d°</string>
     <string name="feels_like">Feels like %1$d°</string>
     <string name="low">Low %1$d°</string>
     <string name="high">High %1$d°</string>
