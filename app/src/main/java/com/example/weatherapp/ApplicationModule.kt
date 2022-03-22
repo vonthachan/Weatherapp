@@ -14,7 +14,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 object ApplicationModule {
     @Provides
-    fun provideApiService(): Api{
+    fun provideApiService(): Api {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()

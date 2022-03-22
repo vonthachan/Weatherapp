@@ -103,7 +103,7 @@
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="@id/highTemp"
         app:layout_constraintStart_toEndOf="@id/highTemp"
-        android:layout_marginStart="8dp"/>
+        android:layout_marginStart="8dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,11 @@
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/activity_forecast.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/activity_main.xml" value="0.15625" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/current_conditions_fragment.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/forecast_fragment.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/fragment_current_conditions.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/fragment_forecast.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/row_date.xml" value="0.33" />
         <entry key="..\:/Users/Vontha/AndroidStudioProjects/weatherapp/app/src/main/res/layout/toolbar.xml" value="0.16770833333333332" />
       </map>

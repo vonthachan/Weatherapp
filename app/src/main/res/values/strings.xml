@@ -16,4 +16,8 @@
     <string name="highTemp">High: %1$d°</string>
     <string name="lowTemp">Low: %1$d°</string>
     <string name="temp">Temp: %1$d°</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="zipCode">Zip Code</string>
+    <string name="submit">SUBMIT</string>
+    <string name="ok">OK</string>
 </resources>

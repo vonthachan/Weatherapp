@@ -3,8 +3,6 @@ package com.example.weatherapp
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.databinding.RowDateBinding
@@ -13,7 +11,8 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-class MyAdapter(private val data: List<DayForecast>) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
+class MyAdapter(private val data: List<DayForecast>) :
+    RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     @SuppressLint("NewApi")
     class ViewHolder(private val binding: RowDateBinding) : RecyclerView.ViewHolder(binding.root) {
 
