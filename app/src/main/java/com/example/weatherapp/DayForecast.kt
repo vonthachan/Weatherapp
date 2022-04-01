@@ -1,7 +1,10 @@
 package com.example.weatherapp
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class DayForecast(
     @Json(name = "dt") val date: Long,
     val sunrise: Long,
@@ -10,4 +13,4 @@ data class DayForecast(
     val pressure: Float,
     val humidity: Int,
     val weather: List<WeatherCondition>
-)
+) : Parcelable
