@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherapp.ui.forecast
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentForecastBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -32,6 +33,10 @@ class ForecastFragment : Fragment(R.layout.fragment_forecast) {
         viewModel.forecast.observe(this) { forecast ->
             binding.recyclerView.adapter = MyAdapter(forecast.list)
         }
-        viewModel.loadData(args.zipCode)
+        if (args.zipCode != null){
+            viewModel.loadData(args.zipCode!!)
+        } else {
+            viewModel.loadData(args.lat!!.toDouble(), args.lon!!.toDouble())
+        }
     }
 }

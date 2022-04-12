@@ -1,5 +1,6 @@
 package com.example.weatherapp
 
+import com.example.weatherapp.services.Api
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

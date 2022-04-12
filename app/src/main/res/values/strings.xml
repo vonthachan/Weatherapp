@@ -20,4 +20,7 @@
     <string name="zipCode">Zip Code</string>
     <string name="submit">SUBMIT</string>
     <string name="ok">OK</string>
+    <string name="location_button">Location</string>
+    <string name="location_permission_rationale">Need permission to access location</string>
+    <string name="okay">okay</string>
 </resources>
