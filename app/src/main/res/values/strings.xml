@@ -23,4 +23,7 @@
     <string name="location_button">Location</string>
     <string name="location_permission_rationale">Need permission to access location</string>
     <string name="okay">okay</string>
+    <string name="notification_button">Notification</string>
+    <string name="channel_name">Notification Channel Name</string>
+    <string name="channel_description">Channel Description</string>
 </resources>

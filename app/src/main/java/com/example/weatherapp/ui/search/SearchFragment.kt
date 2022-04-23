@@ -2,7 +2,14 @@ package com.example.weatherapp.ui.search
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.text.Editable
@@ -13,8 +20,11 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.weatherapp.MainActivity
 import com.example.weatherapp.R
 import com.example.weatherapp.data.CurrentConditions
 import com.example.weatherapp.databinding.FragmentSearchBinding
@@ -29,6 +39,8 @@ import javax.inject.Inject
 class SearchFragment : Fragment(R.layout.fragment_search),
     ActivityCompat.OnRequestPermissionsResultCallback {
     private lateinit var binding: FragmentSearchBinding
+    private val CHANNEL_ID = "channel_id_1"
+    private val notificationId = 101
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
 
     @Inject
@@ -87,6 +99,13 @@ class SearchFragment : Fragment(R.layout.fragment_search),
             }
         }
 
+        //Begin Notifications
+        createNotificationChannel()
+        binding.notificationButton.setOnClickListener {
+            sendNotification()
+        }
+
+
     }
 
     override fun onResume() {
@@ -128,13 +147,6 @@ class SearchFragment : Fragment(R.layout.fragment_search),
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
 
@@ -154,16 +166,54 @@ class SearchFragment : Fragment(R.layout.fragment_search),
         )
 
         locationProvider.lastLocation.addOnSuccessListener {
-            if(it != null){
+            if (it != null) {
                 Log.d("SearchFragment", it.toString())
                 viewModel.updateCoordinates(it.latitude, it.longitude)
                 viewModel.locationButtonClicked()
-            }
-            else{
+            } else {
                 Log.d("SearchFragment", "Location is null")
             }
         }
 
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            val notificationManager: NotificationManager =
+                requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
+
+    private fun sendNotification() {
+
+        val intent = Intent(this.context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent: PendingIntent = PendingIntent.getActivity(
+            this.requireContext(),
+            0,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE
+        )
+
+        var builder = NotificationCompat.Builder(this.requireActivity(), CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_launcher_foreground)
+            .setContentTitle("Notification Example Title")
+            .setContentText("Notification Example Text")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            // Set the intent that will fire when the user taps the notification
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(notificationId, builder.build())
+        }
     }
 
     private fun navigateToCurrentConditions(currentConditions: CurrentConditions) {
