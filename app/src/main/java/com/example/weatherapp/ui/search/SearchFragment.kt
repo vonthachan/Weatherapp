@@ -8,7 +8,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
@@ -41,6 +40,7 @@ class SearchFragment : Fragment(R.layout.fragment_search),
     private lateinit var binding: FragmentSearchBinding
     private val CHANNEL_ID = "channel_id_1"
     private val notificationId = 101
+    private var notifictionStatus = false
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
 
     @Inject
@@ -102,7 +102,15 @@ class SearchFragment : Fragment(R.layout.fragment_search),
         //Begin Notifications
         createNotificationChannel()
         binding.notificationButton.setOnClickListener {
-            sendNotification()
+            if (notifictionStatus == false) {
+                binding.notificationButton.setText("Turn off notifications")
+                sendNotification()
+                notifictionStatus = true
+            } else {
+                binding.notificationButton.setText("Turn on notifications")
+                NotificationManagerCompat.from(requireContext()).cancelAll()
+                notifictionStatus = false
+            }
         }
 
 
