@@ -1,8 +1,9 @@
-package com.example.weatherapp
+package com.example.weatherapp.ui.currentconditions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.weatherapp.data.CurrentConditions
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 

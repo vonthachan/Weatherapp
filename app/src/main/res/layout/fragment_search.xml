@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".SearchFragment">
+    tools:context=".ui.search.SearchFragment">
 
     <EditText
         android:id="@+id/zipCode"
@@ -22,5 +22,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit" />
+
+    <Button
+        android:id="@+id/location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_button" />
+
+    <Button
+        android:id="@+id/notification_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notification_button" />
 
 </LinearLayout>
