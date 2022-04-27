@@ -26,7 +26,6 @@ class SearchViewModel @Inject constructor(private val service: Api) : ViewModel(
     val enableButton: LiveData<Boolean>
         get() = _enableButton
 
-
     fun getZipCode(): String? {
         return zipCode
     }
@@ -70,6 +69,7 @@ class SearchViewModel @Inject constructor(private val service: Api) : ViewModel(
 
     fun locationButtonClicked() = runBlocking {
         try {
+
             _currentConditions.value = latitude?.let {
                 longitude?.let { it1 ->
                     service.getLocationCurrentConditions(
@@ -81,6 +81,5 @@ class SearchViewModel @Inject constructor(private val service: Api) : ViewModel(
         } catch (e: HttpException) {
             _showErrorDialog.value = true
         }
-
     }
 }

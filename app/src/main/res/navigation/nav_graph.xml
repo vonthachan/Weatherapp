@@ -36,9 +36,6 @@
             android:name="lon"
             app:argType="string"
             app:nullable="true" />
-        <action
-            android:id="@+id/action_currentConditionsFragment_to_searchFragment"
-            app:popUpTo="@id/searchFragment" />
 
 
     </fragment>
@@ -59,9 +56,6 @@
             android:name="lon"
             app:argType="string"
             app:nullable="true" />
-        <action
-            android:id="@+id/action_forecastFragment_to_currentConditionsFragment"
-            app:popUpTo="@id/currentConditionsFragment" />
     </fragment>
 
 
