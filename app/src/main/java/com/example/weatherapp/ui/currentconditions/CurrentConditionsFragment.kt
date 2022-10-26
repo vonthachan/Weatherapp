@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherapp.ui.currentconditions
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentCurrentConditionsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -46,7 +47,9 @@ class CurrentConditionsFragment : Fragment() {
     private fun navigateToForecast() {
         val action =
             CurrentConditionsFragmentDirections.actionCurrentConditionsFragmentToForecastFragment(
-                args.zipCode
+                args.zipCode,
+                args.lat,
+                args.lon
             )
         findNavController().navigate(action)
     }
